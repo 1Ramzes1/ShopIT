@@ -1,7 +1,8 @@
 package com.example.shop_it.models;
 
-import jakarta.persistence.*;
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="request_model")
@@ -19,4 +20,13 @@ public class RequestModel {
 
     @Column(name = "item_id")
     private Long itemId;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
+    }
 }

@@ -19,16 +19,16 @@ public class FirebaseService {
 
     public String save(MultipartFile multipartFile) throws Exception {
         String imageName = String.valueOf(System.currentTimeMillis());
-        BlobId blobId = BlobId.of("it-shop-44487.appspot.com", imageName);
+        BlobId blobId = BlobId.of("javers-cb7ff.appspot.com", imageName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(multipartFile.getContentType()).build();
         storage = StorageOptions.newBuilder()
                 .setCredentials(ServiceAccountCredentials
-                .fromStream(new FileInputStream("it-shop-44487-firebase-adminsdk-58her-a624ecb893.json"))).build().getService();
+                .fromStream(new FileInputStream("javers-cb7ff-firebase-adminsdk-z9ca7-c2f712c1c1.json"))).build().getService();
         storage.create(blobInfo, multipartFile.getInputStream());
         return imageName;
     }
 
     public String getUrl(String filename){
-        return "https://firebasestorage.googleapis.com/v0/b/it-shop-44487.appspot.com/o/"+filename+"?alt=media&token=67bcffa8-79f1-4f1e-bcb4-9d0d25a0956a";
+        return "https://firebasestorage.googleapis.com/v0/b/javers-cb7ff.appspot.com/o/"+filename+"?alt=media&token=756350a7-db05-42a1-b6fc-98adc5b4bb21";
     }
 }

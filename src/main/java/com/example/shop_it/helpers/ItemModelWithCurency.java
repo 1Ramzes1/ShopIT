@@ -1,10 +1,7 @@
 package com.example.shop_it.helpers;
 
 import com.example.shop_it.models.ItemModel;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import lombok.Data;
 
 @Data
