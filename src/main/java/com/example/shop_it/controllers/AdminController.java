@@ -34,7 +34,6 @@ public class AdminController {
     public String getAll(Model model){
         List<ItemModel> list = itemRepo.findAll();
         list = TimeHelper.getTime(list);
-        list.stream().forEach(i -> i.setUrl(firebaseService.getUrl(i.getUrl())));
         model.addAttribute("items", list);
         return "editItems";
     }

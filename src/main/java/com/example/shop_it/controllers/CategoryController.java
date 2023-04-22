@@ -24,7 +24,6 @@ public class CategoryController {
     public String getToys(Model model){
         List<ItemModel> list = itemRepo.findAllByType("Игрушки");
         list = TimeHelper.getTime(list);
-        list.stream().forEach(i -> i.setUrl(firebaseService.getUrl(i.getUrl())));
         model.addAttribute("items", list);
         return "allItems";
     }
@@ -32,7 +31,6 @@ public class CategoryController {
     public String getForPc(Model model){
         List<ItemModel> list = itemRepo.findAllByType("Для компьютера");
         list = TimeHelper.getTime(list);
-        list.stream().forEach(i -> i.setUrl(firebaseService.getUrl(i.getUrl())));
         model.addAttribute("items", list);
         return "allItems";
     }
@@ -40,8 +38,7 @@ public class CategoryController {
     public String getForYou(Model model){
         List<ItemModel> list = itemRepo.findAllByType("Для себя");
         list = TimeHelper.getTime(list);
-        list.stream().forEach(i -> i.setUrl(firebaseService.getUrl(i.getUrl())));
-        model.addAttribute("items", list);
+       model.addAttribute("items", list);
         return "allItems";
     }
 }

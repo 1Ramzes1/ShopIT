@@ -32,16 +32,13 @@ public class AddItemController {
                                 @RequestParam MultipartFile file,
                                 @RequestParam String type) throws Exception {
         ItemModel itemModel = new ItemModel();
-        itemModel.setDisc(disc);
-        itemModel.setName(name);
         try{
             itemModel.setPrice(Integer.parseInt(price));
         }catch (Exception e){
             itemModel.setPrice(-10);
         }
+        itemModel.setImageLink(firebaseService.save(file));
 
-        itemModel.setUrl(firebaseService.save(file));
-        itemModel.setTime(System.currentTimeMillis());
         itemModel.setType(type);
         itemRepo.save(itemModel);
         return new RedirectView("/");

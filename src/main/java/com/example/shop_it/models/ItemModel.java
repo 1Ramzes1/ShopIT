@@ -1,17 +1,13 @@
 package com.example.shop_it.models;
 
 import lombok.Data;
-import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
 @Data
-@Table(appliesTo = "item_model")
+@Table(name = "item_model")
 public class ItemModel {
 
     @javax.persistence.Id
@@ -19,31 +15,17 @@ public class ItemModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
-    private String name;
 
     @Column(name = "price")
     double price;
 
-    @Column(name = "disc")
-    private String disc;
-
-    @Column(name = "url")
-    private String url;
-
-    @Column(name = "add_time")
-    Long time;
-
     @Column(name = "type")
     private String type;
 
-    private String timeFormat;
+    @Column(name = "number")
+    private int number;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "image_link")
+    private String imageLink;
 
-    public Long getId() {
-        return id;
-    }
 }

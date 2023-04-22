@@ -31,12 +31,8 @@ public class ItemModelWithCurency {
 
     public ItemModelWithCurency(ItemModel itemModel) {
         this.id = itemModel.getId();
-        this.name = itemModel.getName();
         this.price = itemModel.getPrice();
-        this.disc = itemModel.getDisc();
-        this.url = itemModel.getUrl();
-        this.time = itemModel.getTime();
         this.type = itemModel.getType();
-        this.timeFormat = itemModel.getTimeFormat();
+        this.url = itemModel.getImageLink();
     }
 }

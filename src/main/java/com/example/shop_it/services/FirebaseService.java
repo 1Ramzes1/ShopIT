@@ -25,7 +25,7 @@ public class FirebaseService {
                 .setCredentials(ServiceAccountCredentials
                 .fromStream(new FileInputStream("javers-cb7ff-firebase-adminsdk-z9ca7-c2f712c1c1.json"))).build().getService();
         storage.create(blobInfo, multipartFile.getInputStream());
-        return imageName;
+        return "https://firebasestorage.googleapis.com/v0/b/javers-cb7ff.appspot.com/o/"+imageName+"?alt=media&token=756350a7-db05-42a1-b6fc-98adc5b4bb21";
     }
 
     public String getUrl(String filename){

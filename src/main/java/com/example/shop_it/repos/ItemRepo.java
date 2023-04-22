@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface ItemRepo extends JpaRepository<ItemModel, Long> {
     ItemModel findById(long id);
+    ItemModel deleteById(long id);
+
+
     List<ItemModel> findAllByType(String type);
 }

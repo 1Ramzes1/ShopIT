@@ -28,8 +28,7 @@ public class AllItemsController {
     public String getAllItem(Model model){
         List<ItemModel> list = itemRepo.findAll();
         list = TimeHelper.getTime(list);
-        list.stream().forEach(i -> i.setUrl(firebaseService.getUrl(i.getUrl())));
-        model.addAttribute("items", list);
+         model.addAttribute("items", list);
         return "allItems";
     }
 }

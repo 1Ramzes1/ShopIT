@@ -20,21 +20,18 @@ public class EditController {
     @GetMapping("/{id}")
     public String edit(@PathVariable long id, Model model) {
         ItemModel itemModel = itemRepo.findById(id);
-        itemModel.setUrl(firebaseService.getUrl(itemModel.getUrl()));
-        model.addAttribute("items", itemModel);
+       model.addAttribute("items", itemModel);
         return "edit";
     }
 
     @PostMapping("/{id}")
     public RedirectView setChanges(@PathVariable long id, @RequestParam String name,
                              @RequestParam double price,
-                             @RequestParam String disc,
+                             @RequestParam String type,
                              @RequestParam String url) {
         ItemModel itemModel = itemRepo.findById(id);
-        itemModel.setName(name);
-        itemModel.setDisc(disc);
+        itemModel.setType(type);
         itemModel.setPrice(price);
-        itemModel.setUrl(url);
         itemRepo.save(itemModel);
         return new RedirectView("/");
     }

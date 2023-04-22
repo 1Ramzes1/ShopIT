@@ -24,6 +24,7 @@ public class DetailItemController {
     RequestRepo requestRepo;
     @Autowired
     FirebaseService firebaseService;
+//https://firebasestorage.googleapis.com/v0/b/javers-cb7ff.appspot.com/o/1682126487751?alt=media&token=756350a7-db05-42a1-b6fc-98adc5b4bb21
 
     @GetMapping("/{id}")
     public String getDetailPage(@PathVariable long id, Model model){
@@ -31,7 +32,7 @@ public class DetailItemController {
         ItemModelWithCurency itemModelWithCurency = new ItemModelWithCurency(itemModel);
         itemModelWithCurency.setEurPrice(carencyService.getEurPrice(itemModel.getPrice()));
         itemModelWithCurency.setUsdPrice(carencyService.getUsdPrice(itemModel.getPrice()));
-        itemModelWithCurency.setUrl(firebaseService.getUrl(itemModelWithCurency.getUrl()));
+        itemModelWithCurency.setUrl(itemModel.getImageLink());
         model.addAttribute("item", itemModelWithCurency);
         return "detailItem";
     }

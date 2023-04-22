@@ -24,10 +24,9 @@ public class mainController {
     @GetMapping
     public String getMainPage(Model model){
         List<ItemModel> list = itemRepo.findAll();
-        list = list.stream().limit(5).collect(Collectors.toList());
+        list = list.stream().limit(6).collect(Collectors.toList());
         list = TimeHelper.getTime(list);
-        list.stream().forEach(i -> i.setUrl(firebaseService.getUrl(i.getUrl())));
-        model.addAttribute("items", list);
+        model.addAttribute("products", list);
         return "index";
     }
 }
