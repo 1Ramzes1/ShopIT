@@ -17,6 +17,6 @@ public class DeleteController {
     @GetMapping("/{id}")
     public RedirectView delete(@PathVariable long id){
         itemRepo.deleteById(id);
-        return new RedirectView("/admin/edit");
+        return new RedirectView("/addItem");
     }
 }

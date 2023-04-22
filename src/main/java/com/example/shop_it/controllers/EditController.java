@@ -21,7 +21,7 @@ public class EditController {
     public String edit(@PathVariable long id, Model model) {
         ItemModel itemModel = itemRepo.findById(id);
        model.addAttribute("items", itemModel);
-        return "addItems";
+        return "addItem";
     }
 
     @PostMapping("/{id}")
