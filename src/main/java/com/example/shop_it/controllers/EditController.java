@@ -17,11 +17,11 @@ public class EditController {
     @Autowired
     FirebaseService firebaseService;
 
-    @GetMapping("/{id}")
+    @GetMapping
     public String edit(@PathVariable long id, Model model) {
         ItemModel itemModel = itemRepo.findById(id);
        model.addAttribute("items", itemModel);
-        return "edit";
+        return "addItems";
     }
 
     @PostMapping("/{id}")

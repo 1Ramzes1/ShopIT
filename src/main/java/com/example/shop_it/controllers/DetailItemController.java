@@ -38,12 +38,12 @@ public class DetailItemController {
     }
 
     @PostMapping("/{id}")
-    public RedirectView saveFata(@PathVariable long id, @RequestParam String name, @RequestParam String phoneNumber){
-        RequestModel requestModel = new RequestModel();
-        requestModel.setName(name);
-        requestModel.setItemId(id);
-        requestModel.setPhoneNumber(phoneNumber);
-        requestRepo.save(requestModel);
-        return new RedirectView("/allItems");
+    public RedirectView saveFata(@PathVariable long id, @RequestParam String name, @RequestParam String phoneNumber,
+                                 @RequestParam int number){
+
+        ItemModel itemModel = itemRepo.findById(id);
+        itemModel.setNumber(itemModel.getNumber() - number);
+        itemRepo.save(itemModel);
+        return new RedirectView("/");
     }
 }

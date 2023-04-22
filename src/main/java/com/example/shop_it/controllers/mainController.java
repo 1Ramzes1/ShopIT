@@ -25,6 +25,7 @@ public class mainController {
     public String getMainPage(Model model){
         List<ItemModel> list = itemRepo.findAll();
         list = list.stream().limit(6).collect(Collectors.toList());
+        list = list.stream().filter(i -> i.getNumber() > 0).collect(Collectors.toList());
         list = TimeHelper.getTime(list);
         model.addAttribute("products", list);
         return "index";

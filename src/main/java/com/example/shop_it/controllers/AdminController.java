@@ -35,7 +35,7 @@ public class AdminController {
         List<ItemModel> list = itemRepo.findAll();
         list = TimeHelper.getTime(list);
         model.addAttribute("items", list);
-        return "editItems";
+        return "addItem";
     }
 
     @GetMapping("/reg")

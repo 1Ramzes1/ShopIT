@@ -30,7 +30,8 @@ public class AddItemController {
                                 @RequestParam String price,
                                 @RequestParam String disc,
                                 @RequestParam MultipartFile file,
-                                @RequestParam String type) throws Exception {
+                                @RequestParam String type,
+                                @RequestParam int number) throws Exception {
         ItemModel itemModel = new ItemModel();
         try{
             itemModel.setPrice(Integer.parseInt(price));
@@ -38,7 +39,7 @@ public class AddItemController {
             itemModel.setPrice(-10);
         }
         itemModel.setImageLink(firebaseService.save(file));
-
+        itemModel.setNumber(number);
         itemModel.setType(type);
         itemRepo.save(itemModel);
         return new RedirectView("/");
